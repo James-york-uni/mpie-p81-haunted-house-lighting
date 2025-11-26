@@ -7,24 +7,28 @@ public class Torch : MonoBehaviour
     {
         
     }
+    public GameObject player;
+    bool torch = true;
 
     // Update is called once per frame
     void Update()
     {
         Transform t = gameObject.transform;
-        bool torch = true;
-        x = 
 
-        if(Input.GetKey (KeyCode.F)) {
-            if(torch) {
-                torch = false;
+        if(torch == true) {
+            if(Input.GetKeyDown(KeyCode.F)) {
                 t.Translate(100f, 0f, 0f);
+                torch = false;
             }
+                
+        }
 
-            if(torch == false) {
+        else if(torch == false) {
+            if(Input.GetKeyDown(KeyCode.F)) {
+                t.transform.position = player.transform.position; 
                 torch = true;
-                t.Translate();
             }
+                
         }
     }
 }
